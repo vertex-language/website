@@ -1,0 +1,65 @@
+{
+  "scaling-http": {
+    "code": "import \"net/http\"\n\nlet server = try http.Listen(\"127.0.0.1:8080\")\ntry await server.Serve { request in\n    var response = http.ResponseWriter()\n    response.WriteText(\"Hello from Vertex\")\n    return response\n}",
+    "check": "check"
+  },
+  "scaling-tasks": {
+    "code": "let total = await withTaskGroup(of: int.self) { group in\n    for id in 1...8 {\n        group.addTask { await work(id) }\n    }\n    var sum = 0\n    for await value in group { sum += value }\n    return sum\n}",
+    "check": "run",
+    "prelude": "func work(_ id: int) async -> int { id * 10 }\nfunc main() async -> int32 {\n//BODY\n    print(total)\n    return 0\n}"
+  },
+  "scaling-sqlite": {
+    "code": "import \"db/sqlite\"\n\nlet db = try sqlite.Database.open()\ntry db.exec(\"CREATE TABLE users (name TEXT)\")\ntry db.exec(\"INSERT INTO users VALUES ('Ada')\")\nlet rows = try db.query(\"SELECT name FROM users\")",
+    "check": "check"
+  },
+  "edge-small": {
+    "code": "func main() -> int32 {\n    print(\"Hello from one native file\")\n    return 0\n}",
+    "check": "run"
+  },
+  "edge-cpp": {
+    "code": "import \"./fast\"\n\n// fast/ holds a C++ module beside its Vertex files\nprint(fast.distance(3.0, 4.0))",
+    "check": "run:fixture"
+  },
+  "edge-release": {
+    "code": "class Sensor {\n    deinit { print(\"released\") }\n}\n\nfunc sample() {\n    let sensor = Sensor()\n    print(\"reading\")\n}\nsample()",
+    "check": "run"
+  },
+  "multi-window": {
+    "code": "import \"ui/window\"\n\nlet win = try window.Create(title: \"Hello\")\nwhile let event = await win.WaitEvent() {\n    if case .closeRequested = event { break }\n}",
+    "check": "check"
+  },
+  "multi-web": {
+    "code": "import \"web\"\n\nvar page = web.Page()\npage.LoadHTML(\"<h1>Hello</h1>\")",
+    "check": "check"
+  },
+  "multi-targets": {
+    "code": "// platform_darwin.vs\npublic func platform() -> string { \"macOS\" }\n\n// platform_android.vs\npublic func platform() -> string { \"Android\" }",
+    "check": "none"
+  },
+  "apps-window": {
+    "code": "import \"ui/window\"\n\nlet win = try window.Create(title: \"Notes\")\nwin.SetTitle(\"Notes - untitled\")",
+    "check": "check"
+  },
+  "apps-state": {
+    "code": "import \"ui/state\"\n\nvar count = state.Signal(0)\nlet doubled = state.Computed<int> { count.Value * 2 }\nlet log = state.Effect { print(\"count \\(count.Value), doubled \\(doubled.Value)\") }\n\ncount.Value = 1",
+    "check": "run"
+  },
+  "apps-style": {
+    "code": ":root {\n    --kit-accent: #1F1E1D;\n    --kit-radius: 10px;\n}",
+    "check": "none",
+    "language": "vss"
+  },
+  "ai-llm": {
+    "code": "import \"llm\"\n\nfunc main() async throws {\n    let ref = \"hf.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0\"\n    let model = try await llm.Load(ref)\n    let prompt = \"Explain ARC briefly.\"\n    let tokens = try await llm.Generate(model, prompt, 64)\n}",
+    "check": "check"
+  },
+  "ai-parallel": {
+    "code": "async let reply = ask(\"What is ARC?\")\nasync let audio = speak(\"Hello\")\nlet (text, voice) = await (reply, audio)",
+    "check": "run",
+    "prelude": "func ask(_ q: string) async -> string { \"answer to \" + q }\nfunc speak(_ s: string) async -> int { s.count }\nfunc main() async -> int32 {\n//BODY\n    print(text, voice)\n    return 0\n}"
+  },
+  "ai-tools": {
+    "code": "import \"./fast\"\n\n// an existing C++ library, called directly\nprint(fast.doubled(21))",
+    "check": "run:fixture"
+  }
+}

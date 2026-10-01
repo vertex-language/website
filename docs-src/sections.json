@@ -1,0 +1,211 @@
+[
+  {
+    "title": "Introduction",
+    "items": [
+      {
+        "slug": "overview",
+        "label": "Overview"
+      },
+      {
+        "slug": "quickstart",
+        "label": "Quickstart"
+      },
+      {
+        "slug": "build-from-source",
+        "label": "Build from source"
+      },
+      {
+        "slug": "cli",
+        "label": "CLI"
+      }
+    ]
+  },
+  {
+    "title": "Language Basics",
+    "items": [
+      {
+        "slug": "values",
+        "label": "Values & types"
+      },
+      {
+        "slug": "operators",
+        "label": "Operators"
+      },
+      {
+        "slug": "strings",
+        "label": "Strings & characters"
+      },
+      {
+        "slug": "optionals",
+        "label": "Optionals"
+      }
+    ]
+  },
+  {
+    "title": "Collections",
+    "items": [
+      {
+        "slug": "arrays",
+        "label": "Arrays"
+      },
+      {
+        "slug": "dictionaries-sets",
+        "label": "Dictionaries & sets"
+      },
+      {
+        "slug": "tuples",
+        "label": "Tuples"
+      }
+    ]
+  },
+  {
+    "title": "Control Flow",
+    "items": [
+      {
+        "slug": "branching",
+        "label": "if & guard"
+      },
+      {
+        "slug": "loops",
+        "label": "Loops"
+      },
+      {
+        "slug": "switch",
+        "label": "Switch & patterns"
+      },
+      {
+        "slug": "defer",
+        "label": "defer"
+      }
+    ]
+  },
+  {
+    "title": "Functions",
+    "items": [
+      {
+        "slug": "functions",
+        "label": "Functions & labels"
+      },
+      {
+        "slug": "closures",
+        "label": "Closures"
+      },
+      {
+        "slug": "receiver-methods",
+        "label": "Receiver methods"
+      }
+    ]
+  },
+  {
+    "title": "Types",
+    "items": [
+      {
+        "slug": "structs",
+        "label": "Structs"
+      },
+      {
+        "slug": "classes",
+        "label": "Classes"
+      },
+      {
+        "slug": "enums",
+        "label": "Enums"
+      },
+      {
+        "slug": "properties",
+        "label": "Properties"
+      }
+    ]
+  },
+  {
+    "title": "Abstraction",
+    "items": [
+      {
+        "slug": "protocols",
+        "label": "Protocols"
+      },
+      {
+        "slug": "extensions",
+        "label": "Extensions"
+      },
+      {
+        "slug": "generics",
+        "label": "Generics"
+      }
+    ]
+  },
+  {
+    "title": "Errors",
+    "items": [
+      {
+        "slug": "errors",
+        "label": "Throwing & catching"
+      }
+    ]
+  },
+  {
+    "title": "Memory & Ownership",
+    "items": [
+      {
+        "slug": "arc",
+        "label": "ARC & references"
+      },
+      {
+        "slug": "ownership",
+        "label": "Borrowing & consuming"
+      }
+    ]
+  },
+  {
+    "title": "Concurrency",
+    "items": [
+      {
+        "slug": "async-await",
+        "label": "async & await"
+      },
+      {
+        "slug": "tasks",
+        "label": "Tasks & groups"
+      },
+      {
+        "slug": "actors",
+        "label": "Actors"
+      }
+    ]
+  },
+  {
+    "title": "GPU Compute",
+    "items": [
+      {
+        "slug": "kernels",
+        "label": "Kernels"
+      }
+    ]
+  },
+  {
+    "title": "Packages",
+    "items": [
+      {
+        "slug": "packages",
+        "label": "Packages & imports"
+      },
+      {
+        "slug": "cpp-modules",
+        "label": "C++ modules"
+      },
+      {
+        "slug": "stdlib",
+        "label": "Standard library"
+      }
+    ]
+  },
+  {
+    "title": "Reference",
+    "items": [
+      {
+        "slug": "reference",
+        "label": "Language reference"
+      }
+    ]
+  }
+]
