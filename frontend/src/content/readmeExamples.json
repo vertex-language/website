@@ -1,0 +1,66 @@
+{
+  "fs": {
+    "code": "import \"fs\"\n\nlet dir = try fs.TempDir()\nlet file = dir / \"notes.txt\"\ntry fs.WriteText(file, \"hello from vertex\\n\")\nprint(try fs.ReadText(file), terminator: \"\")\ntry fs.RemoveAll(dir)",
+    "check": "run"
+  },
+  "time": {
+    "code": "import \"time\"\n\nlet start = time.Instant.Now()\nlet pause = time.Duration.Milliseconds(1500)\nprint(pause.AsSeconds())\nprint(start.Elapsed().AsMilliseconds() < 1000)",
+    "check": "run"
+  },
+  "hash-crc32": {
+    "code": "import \"hash/crc32\"\n\nprint(crc32.ChecksumString(\"hello\"))",
+    "check": "run"
+  },
+  "crypto-sha256": {
+    "code": "import \"crypto/sha256\"\n\nprint(sha256.ToHex(sha256.Sum256(\"hello\")))",
+    "check": "run"
+  },
+  "encoding-hex": {
+    "code": "import \"encoding/hex\"\n\nlet bytes = [uint8](\"Vertex\".utf8)\nprint(hex.EncodeToString(bytes))",
+    "check": "run"
+  },
+  "encoding-base64": {
+    "code": "import \"encoding/base64\"\n\nlet bytes = [uint8](\"Vertex\".utf8)\nlet text = base64.EncodeToString(bytes)\nprint(text)\nprint(try base64.DecodeString(text) == bytes)",
+    "check": "run"
+  },
+  "encoding-json": {
+    "code": "import \"encoding/json\"\n\nlet doc = try json.Parse(\"{\\\"name\\\": \\\"vertex\\\", \\\"tags\\\": [\\\"fast\\\", \\\"safe\\\"]}\")\nprint(doc[\"name\"] as Any)\nprint(json.Encode(doc))",
+    "check": "run"
+  },
+  "compress-gzip": {
+    "code": "import \"compress/gzip\"\n\nlet original = [uint8](String(repeating: \"vertex \", count: 200).utf8)\nlet packed = gzip.Compress(original)\nlet restored = try gzip.Decompress(packed)\nprint(original.count, packed.count, restored == original)",
+    "check": "run"
+  },
+  "os-env": {
+    "code": "import \"os/env\"\n\nenv.Set(\"GREETING\", \"hello\")\nprint(env.Get(\"GREETING\") ?? \"unset\")",
+    "check": "run"
+  },
+  "net-url": {
+    "code": "import \"net/url\"\n\nlet u = try url.Parse(\"https://example.com:8080/docs?page=2\")\nprint(u.Scheme, u.Host, u.Port, u.Path)",
+    "check": "run"
+  },
+  "net-http": {
+    "code": "import \"net/http\"\n\nfunc main() async throws {\n    let response = try await http.Get(\"http://example.com/\")\n    print(response.StatusCode)\n}",
+    "check": "check"
+  },
+  "db-sqlite": {
+    "code": "import \"db/sqlite\"\n\nlet db = try sqlite.Database.open()\ntry db.exec(\"CREATE TABLE users (name TEXT)\")\ntry db.exec(\"INSERT INTO users VALUES ('Ada')\")\nlet rows = try db.query(\"SELECT name FROM users\")",
+    "check": "check"
+  },
+  "ui-window": {
+    "code": "import \"ui/window\"\n\nlet win = try window.Create(title: \"Hello\")\nwhile let event = await win.WaitEvent() {\n    if case .closeRequested = event { break }\n}",
+    "check": "check"
+  },
+  "ui-state": {
+    "code": "import \"ui/state\"\n\nvar count = state.Signal(0)\nlet doubled = state.Computed<int> { count.Value * 2 }\nlet log = state.Effect { print(\"count \\(count.Value), doubled \\(doubled.Value)\") }\n\ncount.Value = 1",
+    "check": "run"
+  },
+  "web": {
+    "code": "import \"web\"\n\nvar page = web.Page()\npage.LoadHTML(\"<h1>Hello</h1>\")",
+    "check": "check"
+  },
+  "llm": {
+    "code": "import \"llm\"\n\nfunc main() async throws {\n    let model = try await llm.Load(\"hf.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0\")\n    let tokens = try await llm.Generate(model, \"Explain ARC briefly.\", 64)\n}",
+    "check": "check"
+  }
+}

@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+
+# Build output
+frontend/dist/
+backend/server
+backend/server.exe
+*.test
+*.out
+
+# Vite / TypeScript caches
+*.tsbuildinfo
+frontend/.vite/
+frontend/node_modules/.vite/
+.cache/
+.parcel-cache/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Test coverage
+coverage/
+
+# Editors and IDEs
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+.tmp/

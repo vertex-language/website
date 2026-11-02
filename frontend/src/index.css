@@ -1,0 +1,349 @@
+:root {
+  --bg-page: #FCFCFB;
+  --surface-card: #FFFFFF;
+  --surface-subtle: #F3F1EC;
+  --surface-hover: #F0EEE6;
+  --border-subtle: #E8E6DF;
+  --border-hover: #D8D5CD;
+  --text-primary: #1F1E1D;
+  --text-secondary: #666660;
+  --text-muted: #8F8D87;
+  --accent-blue: #2160C4;
+  --accent-blue-hover: #174EA6;
+  --accent-blue-subtle: #EEF4FC;
+  --accent-blue-border: #D4E2F6;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-page);
+}
+
+/* Inline code chip */
+code:not(pre code) {
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  padding: 0.15em 0.38em;
+  border-radius: 5px;
+  background-color: #F3F1EC;
+  border: 1px solid #E8E6DF;
+  color: #1F1E1D;
+}
+
+/* Keycap badge */
+kbd.keycap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11px;
+  line-height: 1;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 4px;
+  background-color: #FCFCFB;
+  border: 1px solid #D8D5CD;
+  box-shadow: 0 1px 0 #D8D5CD;
+  color: #73716C;
+}
+
+.docs-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #D8D5CD transparent;
+}
+.docs-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.docs-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.docs-scroll::-webkit-scrollbar-thumb {
+  background-color: #D8D5CD;
+  border-radius: 999px;
+}
+.docs-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #C5C2BA;
+}
+
+/* Hero code container scroll and sizing */
+.vertex-hero-code {
+  flex: 1;
+  height: 100%;
+  overflow: auto !important;
+  padding: 1.15rem 1.35rem !important;
+  font-size: 0.82rem !important;
+  line-height: 1.55 !important;
+  scrollbar-width: thin;
+  scrollbar-color: #D8D5CD transparent;
+}
+.vertex-hero-code::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.vertex-hero-code::-webkit-scrollbar-track {
+  background: transparent;
+}
+.vertex-hero-code::-webkit-scrollbar-thumb {
+  background-color: #D8D5CD;
+  border-radius: 999px;
+}
+.vertex-hero-code::-webkit-scrollbar-thumb:hover {
+  background-color: #C5C2BA;
+}
+
+/* Package search result title hover underline */
+.package-item-title {
+  text-decoration: none;
+  color: #1F1E1D;
+}
+.package-item-title:hover {
+  text-decoration: underline;
+  text-decoration-color: #1F1E1D;
+  text-underline-offset: 3px;
+}
+
+/* Package single view & documentation styling */
+.package-doc-content {
+  scroll-behavior: smooth;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1F1E1D;
+  line-height: 1.65;
+  font-size: 0.9375rem;
+  word-break: break-word;
+}
+
+.package-doc-content [id],
+.package-doc-content h2,
+.package-doc-content h3,
+.package-doc-content h4 {
+  scroll-margin-top: 80px;
+}
+
+.package-doc-content #index + ul,
+.package-doc-content #index + p + ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-top: 0.65rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.package-doc-content #index + ul li,
+.package-doc-content #index + p + ul li {
+  margin-bottom: 0.35rem !important;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace !important;
+  font-size: 0.84rem !important;
+  line-height: 1.55 !important;
+  color: #0284c7 !important;
+}
+
+.package-doc-content #index + ul li code,
+.package-doc-content #index + p + ul li code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+  color: #0284c7 !important;
+  font-family: inherit !important;
+}
+
+.package-doc-content #index + ul li a,
+.package-doc-content #index + p + ul li a {
+  color: #0284c7 !important;
+  text-decoration: none !important;
+}
+
+.package-doc-content #index + ul li a:hover,
+.package-doc-content #index + p + ul li a:hover {
+  text-decoration: underline !important;
+  text-decoration-color: #0284c7 !important;
+  text-underline-offset: 2px !important;
+}
+
+.package-doc-content #index + ul ul,
+.package-doc-content #index + p + ul ul {
+  list-style: none !important;
+  padding-left: 1.75rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.package-doc-content h3 a[id],
+.package-doc-content h2 a[id] {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Package detail responsive 2-column layout */
+.package-detail-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+@media (max-width: 900px) {
+  .package-detail-flex {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  .package-detail-sidebar {
+    width: 100% !important;
+  }
+  /* In a column, flex-start alignment sizes children to their content, which
+     lets wide code blocks stretch the page. Fill the width instead. */
+  .package-detail-flex {
+    align-items: stretch !important;
+  }
+  .package-detail-flex > * {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
+
+
+
+/* ───────────── Mobile ─────────────
+   Most layout is inline-styled, so structural changes live in components
+   (see hooks/useMediaQuery). This block holds what inline styles cannot
+   express: touch sizing, wrapping, and overrides keyed on class names. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+img, svg, video {
+  max-width: 100%;
+}
+
+@media (max-width: 860px) {
+  /* Docs navigation drawer */
+  .docs-sidebar {
+    border-right: none !important;
+  }
+  .docs-sidebar > button {
+    display: none !important; /* the decorative search box */
+  }
+  .docs-sidebar nav {
+    padding-top: 0.75rem !important;
+    padding-right: 1.25rem !important;
+  }
+  .docs-sidebar nav a {
+    font-size: 15px !important;
+    padding: 0.55rem 0.6rem !important;
+  }
+  .docs-sidebar nav div {
+    font-size: 14px !important;
+  }
+
+  /* Code stays on one line and scrolls sideways instead of overflowing the page */
+  .docs-code-block {
+    font-size: 12.5px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Footer */
+@media (max-width: 860px) {
+  .footer-inner { padding: 0 1.25rem !important; }
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2.25rem 1.5rem !important;
+    margin-bottom: 3rem !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.25rem !important;
+  }
+  .footer-social, .footer-copy, .footer-lang {
+    flex: none !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+  }
+}
+@media (max-width: 420px) {
+  .footer-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Generic phone rules for the inline-styled pages. These match the serialized
+   inline style, so they cover every page that uses the shared spacing scale. */
+@media (max-width: 860px) {
+  /* Multi-column grids stack */
+  #root [style*="grid-template-columns"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  #root .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2.25rem 1.5rem !important;
+  }
+
+  /* Page gutters */
+  #root [style*="max-width: 1300px"],
+  #root [style*="max-width: 1200px"],
+  #root [style*="max-width: 1100px"] {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+  #root [style*="padding: 6rem 2rem"],
+  #root [style*="padding: 4rem 2rem"],
+  #root [style*="padding: 5rem 2rem"],
+  #root [style*="padding: 4.5rem 3rem"] {
+    padding: 3rem 1.25rem !important;
+  }
+  #root [style*="padding: 5.5rem 0"],
+  #root [style*="padding: 6rem 0"] { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  #root [style*="padding: 2.25rem"],
+  #root [style*="padding: 2rem;"] {
+    padding: 1.35rem !important;
+  }
+
+  /* Display type scales down */
+  #root [style*="font-size: 3rem"],
+  #root [style*="font-size: 2.85rem"],
+  #root [style*="font-size: 2.75rem"] { font-size: 2.1rem !important; }
+  #root [style*="font-size: 2.5rem"],
+  #root [style*="font-size: 2.4rem"],
+  #root [style*="font-size: 2.25rem"],
+  #root [style*="font-size: 2.1rem"] { font-size: 1.75rem !important; }
+
+  /* Rows of actions wrap instead of overflowing */
+  #root [style*="gap: 0.85rem"],
+  #root [style*="gap: 0.65rem"] { flex-wrap: wrap; }
+}
+
+/* Headings wrap into even lines instead of leaving a single word alone */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Footer links darken on hover */
+.footer-link:hover {
+  color: #1F1E1D !important;
+}
